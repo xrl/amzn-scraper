@@ -1,5 +1,5 @@
-module Amazon
-  module Extractor
+module Extractors
+  module Amazon
     module Review
       REVIEW_MOST_COMMON_NODE   =  [{:params => [:css, "a + br + div > div + div > span > span > span".freeze]},
                                     {:params => [:collect], :block => lambda{|x| x.parent.parent.parent.parent}.freeze}]
@@ -168,5 +168,5 @@ module Amazon
 end
 
 class Mechanize::Page
-  include Amazon::Extractor::Review
+  include Extractors::Amazon::Review
 end
